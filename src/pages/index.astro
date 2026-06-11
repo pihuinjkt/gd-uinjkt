@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+
+const SECTIONS = [
+  { number: "01", title: "Pusat Unduhan", to: "#", blurb: "Akses berkas master logo berkualias tinggi, templat dokumen, dan aset digital resmi." },
+  { number: "02", title: "Segel Akademik", to: "#", blurb: "Aturan penggunaan segel universitas untuk ijazah, sertifikat, dan dokumen formal universitas." },
+  { number: "03", title: "Signature Logo", to: "#", blurb: "Panduan konfigurasi logo utama, rasio area aman, dan kombinasi teks identitas." },
+  { number: "04", title: "Lambang Fakultas", to: "#", blurb: "Standarisasi lambang dan identitas visual turunan untuk setiap fakultas di lingkungan UIN." },
+  { number: "05", title: "Tipografi Logo", to: "#", blurb: "Pedoman rincian anatomi huruf pembentuk teks logotype resmi universitas." },
+  { number: "06", title: "Warna", to: "#", blurb: "Palet warna resmi (hijau, biru UIN, emas) beserta kode HEX, CMYK, dan aturan kombinasinya." },
+  { number: "07", title: "Tipografi", to: "#", blurb: "Sistem hierarki font resmi yang disetujui untuk media cetak maupun publikasi digital." },
+];
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedoman Merek — UIN Syarif Hidayatullah Jakarta</title>
+    <meta name="description" content="Sistem identitas visual UIN Jakarta: logo, lambang fakultas, warna, tipografi, dan unduhan." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#FBFBFB] text-[#1E293B] antialiased min-h-screen">
+    
+    <header class="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-5 md:px-16 flex justify-between items-center">
+      <div>
+        <a href="/" class="font-bold text-xl tracking-tight text-[#0F172A]">
+          UIN Jakarta <span class="text-xs font-semibold tracking-widest text-gray-400 ml-1 uppercase">Brand</span>
+        </a>
+      </div>
+      <nav class="flex items-center gap-6 text-sm font-medium text-gray-600">
+        <a href="/" class="text-[#0F172A] font-semibold">Beranda</a>
+        <a href="#" class="hover:text-[#025A8F] transition-colors">Pusat Unduhan</a>
+      </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+      <section>
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+          Pedoman Identitas Visual · 2026
+        </p>
+        <h1 class="mt-6 font-serif text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-[#0F172A]">
+          Satu identitas, <span class="text-[#025A8F]">satu suara</span> untuk UIN Jakarta.
+        </h1>
+        <p class="mt-8 max-w-2xl text-base sm:text-lg text-gray-500 leading-relaxed">
+          Pedoman ini mengatur penggunaan lambang, warna, dan tipografi resmi
+          UIN Syarif Hidayatullah Jakarta — dirancang agar setiap penerapan
+          tetap konsisten, akademik, dan bermartabat.
+        </p>
+        
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="#" class="inline-flex items-center gap-2 rounded-md bg-[#0A1D37] px-5 py-3 text-sm font-medium text-white hover:bg-[#112D52] transition-colors shadow-sm">
+            Pusat Unduhan
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a href="#" class="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-[#1E293B] hover:bg-gray-50 hover:border-gray-300 transition-colors">
+            Mulai dari logo
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-28 md:mt-36">
+        <div class="mb-10 flex items-baseline justify-between border-b border-gray-100 pb-4">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A]">Isi pedoman</h2>
+          <span class="font-mono text-xs tracking-wider text-gray-400">07 BAGIAN</span>
+        </div>
+        
+        <ul class="divide-y divide-gray-100 border-b border-gray-100">
+          {SECTIONS.map((s) => (
+            <li>
+              <a href={s.to} class="group grid grid-cols-1 md:grid-cols-12 items-baseline gap-2 md:gap-4 py-6 px-2 -mx-2 rounded-lg hover:bg-gray-50/70 transition-all duration-150">
+                <span class="col-span-1 font-mono text-xs text-gray-400">{s.number}</span>
+                <span class="col-span-1 md:col-span-4 font-serif text-xl sm:text-2xl font-semibold text-[#0F172A] group-hover:text-[#025A8F] transition-colors">
+                  {s.title}
+                </span>
+                <span class="col-span-1 md:col-span-6 text-sm text-gray-500 leading-relaxed">
+                  {s.blurb}
+                </span>
+                <div class="col-span-1 justify-self-start md:justify-self-end text-gray-300 group-hover:text-[#025A8F] transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+</style>
