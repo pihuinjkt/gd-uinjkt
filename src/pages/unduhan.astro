@@ -6,6 +6,19 @@ import PageHeader from "@/components/page-header.astro";
 import DownloadCard from "@/components/download-card.astro";
 import SectionPage from "@/components/section-page.astro"; 
 
+// 1. Definisi Kontrak Tipe Data untuk Menghilangkan Error Union Type
+interface DownloadItem {
+  title: string;
+  format: string;
+  size: string;
+  description?: string; // Tanda tanya (?) menegaskan properti ini opsional
+}
+
+interface GroupItem {
+  title: string;
+  items: DownloadItem[];
+}
+
 const SECTIONS = [
   { number: "01", title: "Pusat Unduhan", to: "/unduhan", blurb: "Akses berkas master logo berkualias tinggi, templat dokumen, dan aset digital resmi." },
   { number: "02", title: "Segel Akademik", to: "/akademik", blurb: "Aturan penggunaan segel universitas untuk ijazah, sertifikat, dan dokumen formal universitas." },
@@ -16,7 +29,8 @@ const SECTIONS = [
   { number: "07", title: "Tipografi", to: "/tipografi", blurb: "Sistem hierarki font resmi yang disetujui untuk media cetak maupun publikasi digital." },
 ];
 
-const groups = [
+// 2. Berikan Type Annotation : GroupItem[] pada variabel groups
+const groups: GroupItem[] = [
   {
     title: "Logo",
     items: [
@@ -80,7 +94,7 @@ const groups = [
       
       <nav class="flex items-center gap-6 text-sm font-medium text-gray-600">
         <a href="/" class="hover:text-[#025A8F] transition-colors">Beranda</a>
-        <a href="/unduhan" class="text-[#025A8F] font-semibold">Pusat Unduhan</a>
+        <a href="/unduhan" class="text-[#0F172A] font-semibold">Pusat Unduhan</a>
       </nav>
     </header>
 
