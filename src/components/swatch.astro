@@ -1,0 +1,35 @@
+---
+// src/components/swatch.astro
+interface Props {
+  name: string;
+  hex: string;
+  rgb: string;
+  cmyk: string;
+  textOnLight?: boolean;
+}
+
+const { name, hex, rgb, cmyk, textOnLight = false } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-xs flex flex-col">
+  <div 
+    style={{ backgroundColor: hex }} 
+    class={`h-32 p-4 flex flex-col justify-end transition-transform hover:scale-[1.01] duration-200 ${
+      textOnLight ? "text-[#1E293B]" : "text-white"
+    }`}
+  >
+    <span class="font-serif text-lg font-bold">{name}</span>
+    <span class="font-mono text-xs opacity-80 uppercase tracking-wider">{hex}</span>
+  </div>
+  
+  <div class="p-4 grid grid-cols-2 gap-y-2 text-xs border-t border-gray-50 bg-[#FBFBFB]">
+    <div>
+      <p class="text-gray-400 font-mono text-[10px] uppercase tracking-wider">RGB</p>
+      <p class="font-mono font-medium text-gray-700 mt-0.5">{rgb}</p>
+    </div>
+    <div>
+      <p class="text-gray-400 font-mono text-[10px] uppercase tracking-wider">CMYK</p>
+      <p class="font-mono font-medium text-gray-700 mt-0.5">{cmyk}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+---
+// src/layouts/SectionPage.astro
+import { Icon } from "astro-icon/components";
+
+// 1. Ambil data SECTIONS langsung dari file index atau lib kamu
+// Pastikan path ke data array SECTIONS sudah sesuai
+const SECTIONS = [
+  { number: "01", title: "Pusat Unduhan", to: "/unduhan" },
+  { number: "02", title: "Segel Akademik", to: "/akademik" },
+  { number: "03", title: "Signature Logo", to: "/logo" },
+  { number: "04", title: "Lambang Fakultas", to: "/fakultas" },
+  { number: "05", title: "Tipografi Logo", to: "/tipografi-logo" },
+  { number: "06", title: "Warna", to: "/warna" },
+  { number: "07", title: "Tipografi", to: "/tipografi" },
+];
+
+interface Props {
+  slug: string;
+}
+
+// 2. Ambil slug halaman saat ini dari props
+const { slug } = Astro.props;
+
+// 3. Logika pencarian bab selanjutnya (sama seperti kode React aslimu)
+const idx = SECTIONS.findIndex((s) => s.to === slug);
+const next = SECTIONS[(idx + 1) % SECTIONS.length];
+---
+
+<article class="mx-auto max-w-4xl px-6 py-16 md:py-24">
+  
+  <slot />
+
+  <div class="mt-24 border-t border-gray-100 pt-8">
+    <a
+      href={next.to}
+      class="group flex items-center justify-between gap-4 rounded-lg p-4 hover:bg-gray-50 transition-colors"
+    >
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+          Selanjutnya · {next.number}
+        </p>
+        <p class="mt-1 font-serif text-2xl text-[#0F172A] font-semibold">
+          {next.title}
+        </p>
+      </div>
+      <Icon 
+        name="lucide:arrow-right" 
+        class="h-5 w-5 text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-[#025A8F]" 
+      />
+    </a>
+  </div>
+
+</article>

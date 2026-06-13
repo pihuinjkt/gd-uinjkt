@@ -1,0 +1,26 @@
+---
+// src/components/page-header.astro
+
+// 1. Definisikan tipe Props menggunakan standar TypeScript di Astro
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+}
+
+// 2. Ambil data props yang dikirim dari halaman induk
+const { eyebrow, title, lead } = Astro.props;
+---
+
+<!-- 3. Struktur HTML + Tailwind CSS v4 (className diganti menjadi class) -->
+<header class="border-b border-gray-100 pb-12">
+  <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+    {eyebrow}
+  </p>
+  <h1 class="mt-4 font-serif text-5xl font-bold leading-[1.05] md:text-6xl text-[#0F172A]">
+    {title}
+  </h1>
+  <p class="mt-6 max-w-2xl text-lg text-gray-500 leading-relaxed">
+    {lead}
+  </p>
+</header>
